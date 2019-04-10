@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import "./App.css"
 
-function Todo({ todo, index, completeTodo }) {
+function Todo({ todo, index, completeTodo, removeTodo }) {
   return (
     <div
       className="todo"
@@ -14,6 +14,8 @@ function Todo({ todo, index, completeTodo }) {
         value={todo.isCompleted}
         onChange={() => completeTodo(index)}
       />
+
+      <button onClick={() => removeTodo(index)}>&times;</button>
     </div>
   )
 }
@@ -73,6 +75,12 @@ function App() {
     setTodos(newTodos)
   }
 
+  const removeTodo = index => {
+    const newTodos = todos.filter((todo, i) => i !== index)
+
+    setTodos(newTodos)
+  }
+
   return (
     <div className="app">
       <div className="todo-list">
@@ -82,6 +90,7 @@ function App() {
             index={index}
             todo={todo}
             completeTodo={completeTodo}
+            removeTodo={removeTodo}
           />
         ))}
 
