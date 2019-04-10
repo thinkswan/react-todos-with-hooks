@@ -1,8 +1,21 @@
 import React, { useState } from "react"
 import "./App.css"
 
-function Todo({ todo, index }) {
-  return <div className="todo">{todo.text}</div>
+function Todo({ todo, index, completeTodo }) {
+  return (
+    <div
+      className="todo"
+      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+    >
+      {todo.text}
+
+      <input
+        type="checkbox"
+        value={todo.isCompleted}
+        onChange={() => completeTodo(index)}
+      />
+    </div>
+  )
 }
 
 function TodoForm({ addTodo }) {
@@ -48,6 +61,15 @@ function App() {
 
   const addTodo = text => {
     const newTodos = [...todos, { text }]
+
+    setTodos(newTodos)
+  }
+
+  const completeTodo = index => {
+    const newTodos = [...todos]
+
+    newTodos[index].isCompleted = !newTodos[index].isCompleted
+
     setTodos(newTodos)
   }
 
@@ -55,7 +77,12 @@ function App() {
     <div className="app">
       <div className="todo-list">
         {todos.map((todo, index) => (
-          <Todo key={index} index={index} todo={todo} />
+          <Todo
+            key={index}
+            index={index}
+            todo={todo}
+            completeTodo={completeTodo}
+          />
         ))}
 
         <TodoForm addTodo={addTodo} />
