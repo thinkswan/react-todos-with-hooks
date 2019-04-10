@@ -1,3 +1,12 @@
+# react-todos-with-hooks
+
+This tutorial is based on the following:
+
+- [Scotch.io: Build a React To-Do App with React Hooks (No Class Components)](https://scotch.io/tutorials/build-a-react-to-do-app-with-react-hooks-no-class-components)
+- [Traversy Media: Introducing React Hooks](https://www.youtube.com/watch?v=mxK8b99iJTg)
+
+# create-react-app Instructions
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
