@@ -1,6 +1,7 @@
 {
   "name": "react-todos-with-hooks",
   "version": "0.1.0",
+  "description": "A React todo app using hooks.",
   "private": true,
   "dependencies": {
     "react": "^16.8.6",
